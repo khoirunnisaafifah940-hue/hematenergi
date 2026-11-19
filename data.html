@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data &amp; Fakta | Padam.</title>
+<meta name="description" content="Hasil pengamatan dan angket hemat energi lintas mata pelajaran untuk warga sekolah.">
+<meta name="theme-color" content="#FFD21F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23FFD21F' stroke='%230A2216' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..900&family=Figtree:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="index.html">padam<span class="dot"></span></a>
+    <button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Utama">
+      <a href="index.html">Beranda</a>
+      <a href="tentang.html">Tentang</a>
+      <a href="data.html" aria-current="page">Data &amp; Fakta</a>
+      <a href="aksi.html">Aksi</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="page-head">
+    <div class="wrap">
+      <div>
+        <h1>Buktikan.</h1>
+        <p class="data-lead">Saklar kedua sudah menyala. Berikut ringkasan temuan awal dari observasi titik listrik dan angket kebiasaan warga sekolah lintas mata pelajaran.</p>
+      </div>
+      <svg class="sunsvg" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+        <circle cx="100" cy="100" r="46" fill="#fff" stroke="#0A2216" stroke-width="5"/>
+        <circle cx="100" cy="100" r="76" fill="none" stroke="#0A2216" stroke-width="18" stroke-dasharray="3 26.84"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>Apa yang ditemukan di lapangan</h2>
+      <p class="sub">Pengamatan dilakukan saat jam istirahat, pergantian pelajaran, dan setelah jam pulang sekolah.</p>
+
+      <div class="stats-grid">
+        <div class="stat-card accent">
+          <span class="stat-num">78%</span>
+          <span class="stat-label">Ruang masih menyala saat kosong</span>
+          <p class="stat-desc">Lampu atau kipas tetap aktif ketika penghuni kelas berpindah ke lab atau istirahat.</p>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">2,5 jam</span>
+          <span class="stat-label">Rata-rata durasi terbuang per hari</span>
+          <p class="stat-desc">Akumulasi waktu perangkat menyala tanpa ada aktivitas belajar di dalam ruangan.</p>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">64%</span>
+          <span class="stat-label">Stopkontak masih terbebani</span>
+          <p class="stat-desc">Charger dan layar proyektor dibiarkan menancap atau dalam posisi standby.</p>
+        </div>
+      </div>
+
+      <div class="chart-box">
+        <div class="chart-head">
+          <h3>Kebiasaan &amp; temuan paling sering</h3>
+          <div class="filter-group" role="group" aria-label="Filter lokasi pengamatan">
+            <button class="filter-btn active" type="button" data-filter="semua">Semua area</button>
+            <button class="filter-btn" type="button" data-filter="kelas">Ruang kelas</button>
+            <button class="filter-btn" type="button" data-filter="lab">Lab &amp; ruang khusus</button>
+          </div>
+        </div>
+        <div class="bar-list" id="bar-list"></div>
+        <p class="chart-note">Sumber: Rekapitulasi lembar observasi &amp; angket warga sekolah (Fase 2).</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec dark">
+    <div class="wrap">
+      <h2>Hitung dampak jika kita matikan</h2>
+      <p class="sub">Simulasi perhitungan matematis (MTK) untuk melihat penghematan listrik bulanan di sekolah dalam 20 hari efektif belajar.</p>
+
+      <div class="calc-card">
+        <div class="calc-controls">
+          <div class="calc-field">
+            <label for="calc-device">Perangkat yang dimatikan</label>
+            <select id="calc-device">
+              <option value="120">4 Lampu TL kelas (total ~120 Watt)</option>
+              <option value="110">2 Kipas angin dinding (total ~110 Watt)</option>
+              <option value="250">Proyektor + layar standby (~250 Watt)</option>
+              <option value="800">1 Unit AC ruang kelas (~800 Watt)</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="calc-hours">Durasi dipadamkan saat tak dipakai <span id="calc-hours-out">2 jam/hari</span></label>
+            <input id="calc-hours" type="range" min="1" max="6" step="0.5" value="2">
+          </div>
+          <div class="calc-field">
+            <label for="calc-rooms">Jumlah ruangan yang ikut bergerak <span id="calc-rooms-out">12 ruangan</span></label>
+            <input id="calc-rooms" type="range" min="1" max="30" step="1" value="12">
+          </div>
+        </div>
+
+        <div class="calc-result" aria-live="polite">
+          <small>Potensi hemat listrik per bulan</small>
+          <div class="calc-big" id="calc-kwh">57.6 kWh</div>
+          <p class="calc-sub" id="calc-co2">Setara pengurangan sekitar 49.0 kg emisi CO₂ per bulan sekolah.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec band">
+    <div class="wrap">
+      <h2>Kontribusi data lintas mata pelajaran</h2>
+      <div class="mapel-grid">
+        <article class="mapel-item">
+          <span class="mapel-tag">MTK</span>
+          <h3>Pengolahan Angket &amp; Estimasi kWh</h3>
+          <p>Menghitung persentase kebiasaan warga sekolah dan konversi daya listrik terbuang ke satuan kilowatt-jam.</p>
+        </article>
+        <article class="mapel-item">
+          <span class="mapel-tag">Bahasa Indonesia</span>
+          <h3>Penyusunan Instrumen &amp; Narasi Fakta</h3>
+          <p>Merumuskan pertanyaan angket yang jelas serta menyajikan laporan temuan agar mudah dipahami pembaca.</p>
+        </article>
+        <article class="mapel-item">
+          <span class="mapel-tag">PABP &amp; PP</span>
+          <h3>Tanggung Jawab &amp; Kepedulian Bersama</h3>
+          <p>Mengkaji sikap amanah terhadap fasilitas umum dan kesadaran warga sekolah menjaga lingkungan.</p>
+        </article>
+        <article class="mapel-item">
+          <span class="mapel-tag">KIK</span>
+          <h3>Dokumentasi &amp; Visualisasi Digital</h3>
+          <p>Mengemas data lapangan menjadi tampilan web interaktif yang informatif pada tahap Fase 2 ini.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <h2>Tiga saklar kampanye</h2>
+      <p class="sub">Dua saklar sudah menyala. Saklar terakhir akan menyusul di Fase 3.</p>
+      <div class="plate">
+        <a class="sw on" href="index.html"><span class="track"><span class="knob"></span></span><span class="txt"><b>Perhatikan</b><small>Beranda, sudah menyala</small></span></a>
+        <a class="sw on" href="data.html" aria-current="page"><span class="track"><span class="knob"></span></span><span class="txt"><b>Buktikan</b><small>Data &amp; Fakta, sudah menyala</small></span></a>
+        <a class="sw" href="aksi.html"><span class="track"><span class="knob"></span></span><span class="txt"><b>Bergerak</b><small>Aksi &amp; Rekomendasi, Fase 3</small></span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <b>padam.</b>
+      <p>Kampanye hemat energi untuk warga sekolah.</p>
+    </div>
+    <div>
+      <p>Kelompok 2: Afifah Khoirunnisa, Nesya Rizki Br G, dan Nisa Nur Azmi (ketua).</p>
+      <p>Kelas <mark class="isi">[Kelas/Jurusan]</mark>. Proyek ESD lintas mata pelajaran.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
